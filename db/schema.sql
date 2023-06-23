@@ -221,3 +221,8 @@ INSERT INTO guides(
 )
 VALUES
     ('The Immortal', 'Necromancer', 'Tank', 'A build for tanks who like to sit in the middle of everything, take no damage and have almost unending amounts of healing and resource sustain', 'Nord', 'Thurvokun', 'Heavy', 'Health', 'Sturdy', 'Fang Lair', 'Thurvokun', 'Heavy', 'Health', 'Sturdy', 'Undaunted Merchant Box', 'Bloodlords Embrace', 'Heavy', 'Health', 'Sturdy', 'Scrying', 'Yolnahkriin', 'Heavy', 'Health', 'Sturdy', 'Sunspire', 'Yolnahkriin', 'Heavy', 'Health', 'Sturdy', 'Sunspire', 'Yolnahkriin', 'Heavy', 'Health', 'Sturdy', 'Sunspire', 'Yolnahkriin', 'Heavy', 'Health', 'Sturdy', 'Sunspire', 'Crimson Oath', 'Reduce Block Cost', 'Healthy', 'The Dread Cellar', 'Crimson Oath', 'Reduce Block Cost', 'Healthy', 'The Dread Cellar', 'Crimson Oath', 'Reduce Block Cost', 'Healthy', 'The Dread Cellar', 'Yolnahkriin', 'Any 1h', 'absorb stamina', 'Defending', 'Sunspire', 'Crimson Oath', 'Shield', 'Health', 'Sturdy', 'The Dread Cellar', 'Crimson Oath', 'Ice Staff', 'Crushing', 'Infused', 'The Dread Cellar', '', '', '', '', '', 'Defensive Stance', 'Hungry Scythe', 'Ransack', 'Expunge And Modify', 'Deaden Pain', 'Glacial Colossus', 'Spirit Guardian', 'Mortal Coil', 'Inner Rage', 'Elemental Blockade', 'Beckoning Armor', 'Renewing Animation', '64', '0', '0', 'Duelists Rebuff', 'Enduring Resolve', 'Unassailable', 'Ironclad', 'Boundless Vitality', 'Fortified', 'Bracing Anchor', 'Slippery', 'Treasure Hunter', 'Rationer', 'Liquid Efficiency', 'Professional Upkeep', 'Bewitched Sugar Skulls', 'Any Tri Stat Potion', 'The Lord', 0);
+
+
+INSERT INTO comments(guide_id, comment) 
+VALUES
+    (1, 'I use this build and never felt tankier');
