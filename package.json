@@ -1,0 +1,19 @@
+{
+    "name": "game-guide-for-eso-api",
+    "version": "1.0.0",
+    "description": "- [Click to go to main app Repository](https://github.com/amarynn/Game-Guide-for-ESO)",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon -r dotenv/config server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "nodemon": "^2.0.22",
+        "pg": "^8.11.0"
+    }
+}
