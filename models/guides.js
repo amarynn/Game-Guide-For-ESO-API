@@ -2,7 +2,7 @@ const db = require("../db/db.js")
 
 const Guides = {
     findAll: () => {
-        const sql = `SELECT guide_title, class_name, role_name, likes FROM guides order by likes`
+        const sql = `SELECT id, guide_title, class_name, role_name, likes FROM guides order by likes`
 
         return db
             .query(sql)
@@ -16,7 +16,7 @@ const Guides = {
             .then(dbRes => dbRes.rows)
     },
     findFiltered: (className, role) => {
-        const sql = "SELECT guide_title, class_name, role_name, likes FROM guides WHERE class_name LIKE $1 AND role_name LIKE $2"
+        const sql = "SELECT id, guide_title, class_name, role_name, likes FROM guides WHERE class_name LIKE $1 AND role_name LIKE $2"
         let classesName = `%${className}%`
         let roles = `%${role}%`
 

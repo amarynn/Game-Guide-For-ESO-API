@@ -2,7 +2,7 @@
     "name": "game-guide-for-eso-api",
     "version": "1.0.0",
     "description": "- [Click to go to main app Repository](https://github.com/amarynn/Game-Guide-for-ESO)",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
