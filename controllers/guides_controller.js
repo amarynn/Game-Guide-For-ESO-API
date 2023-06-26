@@ -31,9 +31,9 @@ router.get('/filtered/:className/:roleName', (req, res) => {
         .then(guides => res.json(guides))
 })
 
-router.post('/:id', (req, res) => {
+router.post('/:id/:likes', (req, res) => {
     const guideId = req.params.id
-    const likes = req.body.likes
+    const likes = req.params.likes
 
     Guides
         .update(guideId, likes)

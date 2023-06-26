@@ -29,7 +29,7 @@ const Guides = {
         UPDATE guides SET likes = $2 WHERE id=$1
             RETURNING *
         `
-        return db.query(sql, [id, (likes + 1)])
+        return db.query(sql, [id, (likes)])
             .then(dbRes => dbRes.rows[0])
     },
     create: (guideTitle,
