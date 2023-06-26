@@ -1,7 +1,6 @@
 const pg = require('pg')
 
 const localDbName = 'game_guide_eso_database'
-console.log(process.env.DATABASE_URL)
 
 let db;
 if (process.env.DATABASE_URL) {

@@ -3,7 +3,6 @@ const db = require("../db/db.js")
 const Comments = {
     findByGuideId: (guideId) => {
         const sql = `SELECT * FROM comments WHERE guide_id = $1`
-        console.log(guideId)
         return db
             .query(sql, [guideId])
             .then(dbRes => dbRes.rows)

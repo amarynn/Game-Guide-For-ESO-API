@@ -16,7 +16,7 @@ const Guides = {
             .then(dbRes => dbRes.rows)
     },
     findFiltered: (className, role) => {
-        const sql = "SELECT id, guide_title, class_name, role_name, likes FROM guides WHERE class_name LIKE $1 AND role_name LIKE $2"
+        const sql = "SELECT id, guide_title, class_name, role_name, likes FROM guides WHERE class_name LIKE $1 AND role_name LIKE $2 order by likes"
         let classesName = `%${className}%`
         let roles = `%${role}%`
 
@@ -32,7 +32,8 @@ const Guides = {
         return db.query(sql, [id, (likes)])
             .then(dbRes => dbRes.rows[0])
     },
-    create: (guideTitle,
+    create: (
+        guideTitle,
         className,
         roleName,
         guideDescription,
@@ -84,26 +85,26 @@ const Guides = {
         ring2Enchantment,
         ring2Trait,
         ring2WhereToObtain,
-        primaryMainhandSetName,
-        primaryMainhandWeaponType,
-        primaryMainhandEnchantment,
-        primaryMainhandTrait,
-        primaryMainhandWhereToObtain,
-        primaryOffhandSetName,
-        primaryOffhandWeaponType,
-        primaryOffhandEnchantment,
-        primaryOffhandTrait,
-        primaryOffhandWhereToObtain,
-        secondaryMainhandSetName,
-        secondaryMainhandWeaponType,
-        secondaryMainhandEnchantment,
-        secondaryMainhandTrait,
-        secondaryMainhandWhereToObtain,
-        secondaryOffhandSetName,
-        secondaryOffhandWeaponType,
-        secondaryOffhandEnchantment,
-        secondaryOffhandTrait,
-        secondaryOffhandWhereToObtain,
+        primaryMainhandSetName = "N/A",
+        primaryMainhandWeaponType = "N/A",
+        primaryMainhandEnchantment = "N/A",
+        primaryMainhandTrait = "N/A",
+        primaryMainhandWhereToObtain = "N/A",
+        primaryOffhandSetName = "N/A",
+        primaryOffhandWeaponType = "N/A",
+        primaryOffhandEnchantment = "N/A",
+        primaryOffhandTrait = "N/A",
+        primaryOffhandWhereToObtain = "N/A",
+        secondaryMainhandSetName = "N/A",
+        secondaryMainhandWeaponType = "N/A",
+        secondaryMainhandEnchantment = "N/A",
+        secondaryMainhandTrait = "N/A",
+        secondaryMainhandWhereToObtain = "N/A",
+        secondaryOffhandSetName = "N/A",
+        secondaryOffhandWeaponType = "N/A",
+        secondaryOffhandEnchantment = "N/A",
+        secondaryOffhandTrait = "N/A",
+        secondaryOffhandWhereToObtain = "N/A",
         skillPrimary1,
         skillPrimary2,
         skillPrimary3,
@@ -123,7 +124,7 @@ const Guides = {
         cpBlueSlottable2,
         cpBlueSlottable3,
         cpBlueSlottable4,
-        cpBedSlottable1,
+        cpRedSlottable1,
         cpRedSlottable2,
         cpRedSlottable3,
         cpRedSlottable4,
@@ -133,9 +134,11 @@ const Guides = {
         cpGreenSlottable4,
         consumableFood,
         consumablePotion,
-        mundusStone) => {
+        mundusStone,
+        likes = 0) => {
         const sql = `
-                INSERT INTO movies(guide_title,
+                INSERT INTO guides (
+                    guide_title,
                     class_name,
                     role_name,
                     guide_description,
@@ -238,12 +241,12 @@ const Guides = {
                     consumable_potion,
                     mundus_stone,
                     likes)
-                VALUES('$1 , $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54, $55, $56, $57, $58, $59, $60, $61, $62, $63, $64, $65, $66, $67, $68, $69, $70, $71, $72, $73, $74, $75, $76, $77, $78, $79, $80, $81, $82, $83, $84, $85, $86, $87, $88, $89, $90, $91, $92, $93, $94, $95, $96, $97, $98, $99, $100, $101, $102, $103')
+                VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27, $28, $29, $30, $31, $32, $33, $34, $35, $36, $37, $38, $39, $40, $41, $42, $43, $44, $45, $46, $47, $48, $49, $50, $51, $52, $53, $54, $55, $56, $57, $58, $59, $60, $61, $62, $63, $64, $65, $66, $67, $68, $69, $70, $71, $72, $73, $74, $75, $76, $77, $78, $79, $80, $81, $82, $83, $84, $85, $86, $87, $88, $89, $90, $91, $92, $93, $94, $95, $96, $97, $98, $99, $100, $101, $102, $103)
                 RETURNING *
             `
-
         return db
-            .query(sql, [guideTitle,
+            .query(sql, [
+                guideTitle,
                 className,
                 roleName,
                 guideDescription,
@@ -334,7 +337,7 @@ const Guides = {
                 cpBlueSlottable2,
                 cpBlueSlottable3,
                 cpBlueSlottable4,
-                cpBedSlottable1,
+                cpRedSlottable1,
                 cpRedSlottable2,
                 cpRedSlottable3,
                 cpRedSlottable4,
@@ -344,7 +347,8 @@ const Guides = {
                 cpGreenSlottable4,
                 consumableFood,
                 consumablePotion,
-                mundusStone, 0])
+                mundusStone,
+                likes])
             .then(dbRes => dbRes.rows[0])
     }
 }
